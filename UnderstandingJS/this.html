@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a() {
+            console.log(this);
+            this.newvariable = 'hello'
+        }
+        a()
+        console.log(newvariable);
+
+        var b = function() {
+            console.log(this);
+        }
+        b()
+
+        var c = {
+            name: 'The c object',
+            log: function(){
+                // this.name = 'Updated c object'
+                // console.log(this);
+
+                // var setname = function(newname){
+                //     this.name = newname
+                // }
+                // setname('Updated again! The c object')
+                // console.log(this);
+
+                //self or that
+                var self = this 
+                self.name = 'Updated c object'
+                console.log(self);
+
+                var setname = function(newname){
+                    self.name = newname
+                }
+                setname('Updated again! The c object')
+                console.log(self);
+            }
+        }
+        c.log()
+
+
+
+
+
+
+    </script>
+</body>
+</html>

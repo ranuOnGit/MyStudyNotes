@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      Function (a special type of obejct)
+      <br />
+      has properties: Name (optional, can be anonymous), Code (invocable())
+      <br />
+      has methods: call(), apply(), bind()
+    </h3>
+
+    <script>
+      var person = {
+        firstname: 'John ',
+        lastname: 'Doe',
+        getFullName: function () {
+          var fullname = this.firstname + this.lastname;
+          return fullname;
+        },
+      };
+
+      var logName = function (lang1, lang2) {
+        console.log('Logged: ' + this.getFullName());
+        console.log('Arguments: ' + lang1 + ' ' + lang2);
+        console.log('---------');
+      };
+      //logName()
+      var logPersonName = logName.bind(person); //.bind creates copy of the function
+      logPersonName();
+      logPersonName('en', 'es');
+      logName.call(person, 'en', 'es'); //.call executes the function
+      logName.apply(person, ['en', 'es']); //.apply executes the function but requires an array of parameters
+
+      //function borrowing
+      var person2 = {
+        firstname: 'Jane',
+        lastname: 'Doe',
+      };
+      console.log(person.getFullName.apply(person2));
+
+      //function currying
+      function multiply(a, b) {
+        return a * b;
+      }
+
+     var multiplyByTwo = multiply.bind(this, 2); // pass only a (as permanent parameter)
+      //var multiplyByTwo = multiply.bind(this, 2, 2) pass both a and b as permanent parameters
+      console.log(multiplyByTwo(4)); //2*4
+      console.log(multiplyByTwo(5)); //2*5
+
+      var multiplyByThree = multiply.bind(this, 3);
+      console.log(multiplyByThree(4)); //3*4
+      console.log(multiplyByThree(5)); //3*5
+    </script>
+  </body>
+</html>

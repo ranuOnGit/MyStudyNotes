@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>var, let, const</h1>
+    <ul>
+        <li>
+            var: 
+            <br>
+            can be defined, updated and redefined
+            <br>
+            global and block/local scope
+        </li>
+        <hr>
+        <li>
+            let: 
+            <br>
+            can be defined and updated, not redefined
+            <br>
+            block/local scope {}
+        </li>
+        <hr>
+        <li>
+            const: 
+            <br>
+            can be defined, not updated and redefined
+            <br>
+            cannot mutate primitive type like string or number
+            <br>
+            can mutate reference type
+            <br>
+            block/local scope {}
+        </li>
+        
+    </ul>
+
+    <script>
+
+        //define
+        var number = 100
+        console.log(number);
+        let amount = 150
+        console.log(amount);
+        const total = 500
+        console.log(total)
+        //update
+        number = 200
+        console.log(number);
+        amount = 300
+        console.log(amount);
+         //total = 700
+        //redefine
+        var number = 'orange'
+        console.log(number);
+        //let amount = 'orange'     
+        //const total = 'orange'
+
+       //const can define and update reference type, but cannot redefine reference type like an object
+        const person = {name: 'bob'}
+        console.log(person.name);
+        person.name = 'john'
+         console.log(person.name);
+        // person = 'orange'
+
+
+
+    </script>
+</body>
+</html>

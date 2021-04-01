@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Factory Pattern</h3>
+    <ul>
+        <li>class-based creational design pattern</li>
+        <li>delegates object instantiation to subclasses</li>
+        <li>manage or manipulate collections of objects that are different yet have many similar characteristics</li>
+    </ul>
+
+
+    <script>
+        //BallFactory - class
+        //createball - method
+        //type - parameter
+        class BallFactory {
+            constructor(){
+                this.createBall = function(type){
+                    let ball;
+                    if (type === 'football' || type === 'soccer') ball = new Football()
+                    else if (type === 'basketball') ball = new Basketball()
+                    ball.roll = function(){
+                        return `This ${this._type} is rolling`
+                    }
+                    return ball
+                }
+            }
+        }
+
+        //subclass
+        class Football{
+            constructor(){
+                this._type = 'football'
+                this.kick = function(){
+                    return 'You kicked the ball'
+                }
+            }
+        }
+
+        //subclass
+        class Basketball{
+            constructor(){
+                this._type = 'basketball'
+                this.bounce = function(){
+                    return 'You bounced the basketball'
+                }
+            }
+        }
+
+        //create objects
+        const factory = new BallFactory()
+        const myFootball = factory.createBall('football')
+        const myBasketball = factory.createBall('basketball')
+
+        console.log(myFootball.roll());
+        console.log(myBasketball.roll());
+        console.log(myFootball.kick());
+        console.log(myBasketball.bounce());
+    </script>
+</body>
+</html>

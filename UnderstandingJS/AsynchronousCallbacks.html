@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Asynchronous callbacks are possible in javascript, but asynchronous part
+      (events like onclick, http requests etc) happens outside the JS engine (in
+      the browser). JS, via the event loop (list of events that are happening),
+      when it is ready (exectuion stack is empty), wlll look at events and
+      process them synchronously.
+      <br />
+      Any events that happen outside the javascript engine get placed into the
+      event queue, and if the execution stack is empty, if JavaScript isn't
+      working on anything else currently, it'll process those events
+    </p>
+    <script>
+      function waitThreeSeconds() {
+        var ms = 3000 + new Date().getTime();
+        while (new Date() < ms) {}
+        console.log('fnished function');
+      }
+      function clickHandler() {
+        console.log('click event!');
+      }
+      // listen for the click event
+      document.addEventListener('click', clickHandler);
+
+      waitThreeSeconds();
+      console.log('finished execution');
+    </script>
+  </body>
+</html>

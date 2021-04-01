@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function constructors
+         function Person(firstName, lastName){
+            console.log(this);
+            this.firstName = firstName,
+            this.lastName = lastName
+            console.log('This function is invoked');
+
+        }
+        Person()
+        Person.prototype.getFullName = function(){
+            return this.firstName + ' ' + this.lastName
+        }
+        var john = new Person('John', 'Doe')
+        console.log(john);
+        console.log(john.getFullName());
+        var jane = new Person('Jane', 'Doe')
+        console.log(jane);
+        Person.prototype.getFormalFullName = function(){
+            return this.lastName + ', ' + this.firstName
+        }
+        console.log(jane.getFormalFullName());
+
+        //Pure prototypal inheritance (only in newer JS engines.. use polyfill to use with older JS engines)
+        var person = {
+            firstname: 'Default',
+            lastname: 'Default',
+            greet: function(){
+                return 'Hi' + this.firstname
+            }
+        }
+
+        var john = Object.create(person)
+        john.firstname = 'John'
+        john.lastname = 'Doe'
+        console.log(john);
+
+    </script>
+</body>
+</html>

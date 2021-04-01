@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h3>Constructor Pattern</h3>
+    <ul>
+        <li>class-based creational design pattern</li>
+        <li>most commonly used for creating new objects of a given kind</li>
+    </ul>
+    <script>
+        //Person - class
+        //name and country - attributes
+        //getDetails - method
+        class Person {
+            constructor(name, country){
+                this._name = name
+                this._country = country
+                this.getDetails = function(){
+                    return(`${this._name} is from ${this._country}`)
+                }
+            }
+        }
+        //instantiate object ranu from class Person using new keyword passing in values as arguments
+        const ranu = new Person('Ranu', 'India')
+        console.log(ranu);
+        console.log(ranu.getDetails());    
+      
+    </script>
+  </body>
+</html>

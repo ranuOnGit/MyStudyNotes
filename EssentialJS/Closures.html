@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h1>Understading CLOSURES</h1>
+    <ul>
+      <li>gives access to outer function's scope from inner function</li>
+      <li>can make private variables using closures</li>
+    </ul>
+
+    <script>
+      function outer() {
+        let secret = 'closure'
+        function inner() {
+          console.log(`hello there secret is: ${secret}`);
+        }
+        return inner;
+        inner()
+      }
+      outer()();
+
+      const value = outer();
+      console.log(value);
+
+      value();
+
+      function newAccount(name, initialBalance){
+          let balance = initialBalance
+          function showBalance(){
+              console.log(`Name : ${name}, Balance: ${balance}`);
+          }
+          return showBalance
+      }
+      newAccount('Susan', 500)()
+
+      const john = newAccount('John', 700)
+      john()
+
+      function bankAccount(name, initialBalance){
+          let balance = initialBalance
+          function newBalance(){
+              console.log(`${name} : Remaining Balance in your account is $${balance}`);
+          }
+          function deposit(amount){
+              balance += amount
+              newBalance()
+          }
+          function withdraw(amount){
+              if(amount > balance){
+                  console.log(`${name} : Not enough funds!`);
+                  return;
+              }
+              balance -= amount
+              newBalance()
+          }
+          return{newBalance, deposit, withdraw}
+      }
+
+      const jane = bankAccount('Jane', 1000)
+      jane.newBalance()
+      jane.deposit(200)
+      jane.withdraw(400)
+      jane.withdraw(1000)
+
+      const bobby = bankAccount('Bobby', 1500)
+      bobby.newBalance()
+
+      function newOuter(){
+        let private = 'React'
+        function newInner(){
+          console.log(`I enjoy working with ${private}`);
+        }
+        return {newInner}
+      }
+
+      var framework = new newOuter()
+      framework.newInner()
+
+    </script>
+  </body>
+</html>

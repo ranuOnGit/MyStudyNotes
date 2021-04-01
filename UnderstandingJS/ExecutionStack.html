@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      everytime a function is called, a new execution context is created for that function; the 'this' variable is created for that function; the variables in it are set-up during the creation phase; every line of code is executed line-by-line
+      <br>
+      everytime a new function is invoked, a new execution context is created, put on top of the execution stack; when the funcion finishes, it is popped off; whatever's at the top is what's currently running, line-by-line, synchronously
+    example 1:
+    <br />
+    function b() { }
+    <!-- another Execution Context (create and execute)  -->
+
+    function a(){ b() }
+    <!-- new Execution Context ic created and placed on the execution stack(create and execute line by line)  -->
+
+    a()
+    <!-- Global Execution Context(created and code is executed)  -->
+
+    example 2:
+    <br />
+    function a(){ 
+        b() <!--2nd-->
+        var c <!--4th-->
+    } 
+    function b(){ 
+        var d <!--3rd-->
+    } 
+    a() <!--1st-->
+    var d <!--5th-->
+  </body>
+</html>

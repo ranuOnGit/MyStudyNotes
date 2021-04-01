@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Where a function sits, determines its outer environment reference. But as it is being executed, those execution contexts are stacking up, and it is running synchronously</p>
+    
+    <script>
+        function b(){
+            //var myVar;
+            console.log(myVar);
+        }
+        function a(){
+            var myVar = 2
+           // console.log(myVar);
+            // function b(){
+            //     console.log(myVar);
+            // }
+            b()
+        }
+        var myVar = 1
+        //console.log(myVar);
+        a()
+       // console.log(myVar);
+    </script>
+</body>
+</html>

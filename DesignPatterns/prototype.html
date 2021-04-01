@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Prototype Pattern</h3>
+    <ul>
+        <li>object-based creational design pattern</li>
+        <li>use 'skeleton' of existing object to create/ instantiate new objects</li>
+        <li>utilizes prototypal inheritance instead of object-oriented inheritance</li>
+    </ul>
+    
+    <script>
+        //car object used as prototype to create another object, myCar, using Object.Create fetaure of JavaScipt and define an extra property owner on the new object
+        const car = {
+            noOfWheels: 4,
+            start(){
+                return 'started'
+            },
+            stop(){
+                return 'stopped'
+            }
+        }
+        const myCar = Object.create(car, {owner: {value: 'John'}})
+        console.log(myCar.__proto__===car);
+        console.log(myCar);
+        console.log(myCar.noOfWheels);
+        console.log(myCar.start());
+        console.log(myCar.stop());
+    </script>
+</body>
+</html>

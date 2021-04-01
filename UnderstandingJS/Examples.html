@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //coercion
+      var x = 1 + 2;
+      console.log(x);
+      var y = x + 3;
+      console.log(y);
+
+      var a = 1 + '2';
+      console.log(a);
+      var b = a + 3;
+      console.log(b);
+
+      //by value (primitives) : copy points to different memory space
+      var a = 3;
+      var b;
+      b = a;
+      a = 2;
+      console.log(a);
+      console.log(b);
+
+      //by reference (including functions) : copy points to same memory space
+      var c = { greeting: 'hi' };
+      var d;
+      d = c;
+      c.greeting = 'hello'; //mutate
+      console.log(c);
+      console.log(d);
+
+      //by reference ((even as parameters)) : copy points to same memory space
+      function changeGreeting(obj){
+          obj.greeting = 'Hola'
+      }
+      changeGreeting(d)
+      console.log(c);
+      console.log(d);
+
+      // equals operator sets up new memory space (new address)
+      c = {greeting : 'howdy'}
+      console.log(c)
+      console.log(d)
+
+      d = {greeting : 'namaste'}
+      console.log(d);
+      console.log(c);
+
+
+
+    </script>
+  </body>
+</html>

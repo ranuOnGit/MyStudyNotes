@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Closure</h1>
+
+    <script>
+       function newAccount(name, initialBalance){
+           let balance = initialBalance
+
+           function showBalance(){
+               console.log(`Name: ${name}, Balance: $${balance}`);
+           }
+
+           function deposit(amount){
+               balance += amount
+               showBalance()
+           }
+
+           function withdraw(amount){
+               if(amount > balance){
+                   console.log('Funds not enough to withdraw');
+                   return
+               } else {
+                   balance -= amount
+                   showBalance()
+               }
+           }
+           //return showBalance
+
+           return {showBalance, deposit, withdraw}
+       }
+
+       //newAccount('jane', 100)()
+
+       const jane = newAccount('jane', 100)
+       //jane()
+
+       jane.showBalance()
+       jane.deposit(100)
+       jane.withdraw(250)
+       jane.withdraw(50)
+
+
+
+
+
+
+    </script>
+</body>
+</html>

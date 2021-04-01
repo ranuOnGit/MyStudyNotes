@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Singleton Pattern</h3>
+    <ul>
+        <li>only one instance of a class can exist</li>
+        <li>if no instance of class exists, new instance is created and returned</li>
+        <li>if an instance exists, reference to the existing instance is returned</li>
+        <li>mongoose (node.js odm library for mongodb) utilises singleton pattern</li>
+    </ul>
+    <script>
+        // database class is singleton
+        class Database {
+            constructor(data){
+                if(Database.exists){
+                    return Database.instance
+                }
+                this._data = data
+                Database.instance = this
+                Database.exists = true
+                return this
+            }
+            getData(){
+                return this._data
+            }
+            setData(data){
+                this._data = data
+            }
+        }
+        //create mongo object using the new operator to invoke Database class constructor
+        const mongo = new Database('mongo')
+        console.log(mongo.getData());
+        //no new object is instantiated, reference to the earlier object is returned
+        const mySql = new Database('mySql');
+        console.log(mySql.getData())
+    </script>
+</body>
+</html>

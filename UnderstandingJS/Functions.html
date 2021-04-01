@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Function : a special type of Object in JavaScript, with properties and methods</h3>
+    <ul>
+        <li>Primitive</li>
+        <li>Object</li>
+        <li>Function</li>
+        <li>Name optional, can be anonymous</li>
+        <li>Code : property is 'invocable'()</li>
+    </ul>
+
+    <script>
+        greet()
+        //function statement
+        function greet(){
+            console.log('Hi!');
+        }
+
+        //anonymousGreet()
+
+        //function expression anonymous function
+        var anonymousGreet = function(){
+            console.log('Hey!');
+        }
+
+        anonymousGreet()
+
+        //function expression passing function as a parameter
+
+        function log(a){
+            a()
+        }
+
+        log(function(){
+            console.log('Hello!');
+        })
+
+    </script>
+</body>
+</html>
