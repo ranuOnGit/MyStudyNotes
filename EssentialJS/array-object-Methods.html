@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <script>
-        const fruits = ["Mango", "Banana", "Apple"]
-        fruits.sort()
-        fruits.reverse()
-        // console.log(fruits);
+      const fruits = ['Mango', 'Banana', 'Apple'];
+      fruits.sort();
+      fruits.reverse();
+      // console.log(fruits);
 
-        const numbers = [10, 5, 4, 11, 9, 12, 17]
-        n = numbers.sort(function(a,b){return b-a})
-        //console.log(n);
-        number = numbers.filter(number => number > 10)
-        //console.log(number);
-        num = numbers.map(n => n*2)
-        //console.log(num);
-        nos = numbers.reduce((t,c) => t+c)
-        //console.log(nos);
-        nF = numbers.find(n => n < 5)
-        //console.log(nF);
+      const numbers = [10, 5, 4, 11, 9, 12, 17];
+      n = numbers.sort(function (a, b) {
+        return b - a;
+      });
+      //console.log(n);
+      number = numbers.filter((number) => number > 10);
+      //console.log(number);
+      num = numbers.map((n) => n * 2);
+      //console.log(num);
+      nos = numbers.reduce((t, c) => t + c);
+      //console.log(nos);
+      nF = numbers.find((n) => n < 5);
+      //console.log(nF);
 
-        
-       const numObj = {f: 11, a:14, e:7, c: 13}
-        obj = Object.entries(numObj).sort()
-        //console.log(obj);
-        objA = Object.entries(numObj).sort((a,b)=>b[1]-a[1])
-        //console.log(objA);
-        objB = Object.entries(numObj).sort((a,b)=>a[1]-b[1])
-       // console.log(objB);
-        objF = Object.entries(numObj).filter(([k,v]) => v < 10)
-       //console.log(objF);
-        objM = Object.entries(numObj).map(([k,v]) => [v*2])
-        //console.log(objM);
-       objR = Object.entries(numObj).reduce((t, [k,v]) => t+v, 0)
+      const numObj = { f: 11, a: 14, e: 7, c: 13 };
+      obj = Object.entries(numObj).sort();
+      //console.log(obj);
+      objA = Object.entries(numObj).sort((a, b) => b[1] - a[1]);
+      //console.log(objA);
+      objB = Object.entries(numObj).sort((a, b) => a[1] - b[1]);
+      //console.log(objB);
+      objF = Object.entries(numObj).filter(([k, v]) => v < 10);
+      //console.log(objF);
+      objM = Object.entries(numObj).map(([k, v]) => [v * 2]);
+      //console.log(objM);
+      objR = Object.entries(numObj).reduce((t, [k, v]) => t + v, 0);
       //console.log(objR);
-       objI = Object.entries(numObj).find(([k,v]) => [k, v >11])
+      objI = Object.entries(numObj).find(([k, v]) => [k, v > 11]);
       //console.log(objI);
-     
-      const objNew = [
-           {a: 1, b: 2},
-           {a: 2, b: 1},
-           {a: 1, b: 2},
-           {a: 3, b: 5},
-           {a: 4, b: 3},
-           {a: 2, b: 1}
-       ]
 
-       const newObj = objNew.reduce((acc, curr) => {
-           if(!acc.some(el => el.a === curr.a && el.b===curr.b)){
-               acc.push(curr)
-           }
-           return acc
-       }, [])
+      const objNew = [
+        { a: 1, b: 2 },
+        { a: 2, b: 1 },
+        { a: 1, b: 2 },
+        { a: 3, b: 5 },
+        { a: 4, b: 3 },
+        { a: 2, b: 1 },
+      ];
+
+      const newObj = objNew.reduce((acc, curr) => {
+        if (!acc.some((el) => el.a === curr.a && el.b === curr.b)) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
       // console.log(newObj);
 
-       const newerObj = newObj.map(obj => ({...obj, count : obj.a}))
+      const newerObj = newObj.map((obj) => ({ ...obj, count: obj.a }));
       // console.log(newerObj);
-      
-       
 
-       
+      const arr1 = [
+        {
+          id: 1,
+          name: 'abc',
+        },
+      ];
 
-             
-        
-        
-        
+      const arr2 = [
+        {
+          id: 1,
+          salary: 123,
+        },
+      ];
+
+      const arr3 = arr1.map((item, i) => Object.assign({}, item, arr2[i]));
+      //console.log(arr3);
+
+      const arr4 = [
+        {
+          id: 12,
+          name: 'Ranu',
+          age: 41,
+        },
+        {
+          id: 34,
+          name: 'Vivek',
+          age: 43,
+        },
+        {
+          id: 56,
+          name: 'Ishaan',
+          age: 11,
+        },
+      ];
+
+      const arr5 = [
+        {
+          id: 12,
+          name: 'Jane',
+          age: 33,
+        },
+        {
+          id: 78,
+          name: 'John',
+          age: 44,
+        },
+      ];
+
+      //   const arr6 = arr5.reduce((a, {id}) => a.add(id), new Set())
+      //   const arr7 = arr4.filter(({id}) => !arr6.has(id))
+      //   console.log(arr7);
+
+      arr6 = arr4.filter((x) => !arr5.some((y) => y.id == x.id));
+      //console.log(arr6);
+
+      // function count() {
+      //   let arr;
+      //   arr.filter(function (value) {
+      //     return value === false;
+      //   }).length;
+      //   console.log(value());
+      // }
+
+      // arr = [1, 2, 4, 4, 5, 9, 4, 3, 2, 1];
+
+      // count(arr);
+
+      var arr = [1, 2, 4, 4, 5, 9, 4, 3, 2, 1]
+      var count = Array.from(new Set(arr)).map(val=> arr.filter(v=> v===val).length)
+      console.log(count);
     </script>
-</body>
+  </body>
 </html>

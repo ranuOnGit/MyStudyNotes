@@ -9,16 +9,36 @@
   <body>
     Specificity in decreasing order : ID, class, type (h1, p etc.), universal
     selector
-    <br />
+    <br /><br />
     Styling in decreasing order : inline, internal (style tag), external css
     file
-    <br />
-    Display : block, inline, flex
-    <br>
+    <br /><br/>
+    Display : block, inline-block, flex
+    <br><br/>
     Horizontal Centering : 
     <ul>
       <li>block level element - margin : auto</li>
       <li>body - text-align : center</li>
+    </ul>
+    Visibility : 
+    <ul>
+      <li>Display : none <br>remove from flow, hide element, collapse the space</li>
+      <li> Opacity : 1 - visible to 0 - hidden<br>hides element and preserves the space</li>
+      <li>Visibility : hidden<br>hides element and preserves the space, used for transition or fade-in effect when becoming visible</li>
+    </ul>
+    Float : left, right (wraps around the element); also used for making columns by using height, width and float property
+    <br><br>
+    Clear : both, left, right (does not wrap around the element)
+    <br><br>
+    Position : 
+    <ul>
+      <li>Static : default, poistioned according to the normal flow</li>
+      <li>Relative : positioned relative to its normal position 
+        (top, bottom, left, right)
+      </li>
+      <li>Absolute : positioned relative to the parent with position relative</li>
+      <li>Fixed : positioned relative to viewport(screen), stays fixed as we scroll</li>
+      <li>Sticky : position toggles between relative and fixed, once the position is met in the viewport, then it sticks (needs one of the values - top, left, bottom, right)</li>
     </ul>
      
   </body>
